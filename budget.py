@@ -38,7 +38,7 @@ personal_budget.deposit(800,'food')
 
 #check when the balance is sufficient or not
 personal_budget.withdraw(500,'clothing')
-personal_budget.withdraw(3000,'clothing') 
+personal_budget.withdraw(300,'clothing') 
 
 #check whether amount to transfer does not exceed the budget balance for the category
 personal_budget.transfer(200,'entertainment','clothing')
