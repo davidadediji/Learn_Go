@@ -6,9 +6,12 @@ import (
 
 func main() {
 
-	const conferenceTickets int = 50
+	const conferenceTickets = 50
 	var remainingTickets uint = 50
-	var bookings = []string{}
+	bookings := []string{}        //slice
+	bookingsArray := [34]string{} //array
+	bookingsArray[0] = "5"
+	f.Println(bookingsArray)
 
 	//print out the types of a variable and the constants
 	// fmt.Printf("conferenceTickets is %T\n", remainingTickets)
@@ -16,9 +19,8 @@ func main() {
 
 	f.Printf("We have total of %v tickets and %v, are still avaliable.\n", conferenceTickets, remainingTickets)
 	f.Println("Get your tickets here to attend")
-
 	//Arrays - arrays in Go have fixed size
-
+	//infinite loop
 	for {
 		var firstName string
 		var lastName string
