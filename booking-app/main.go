@@ -5,7 +5,6 @@ import (
 )
 
 func main() {
-
 	const conferenceTickets = 50
 	var remainingTickets uint = 50
 	bookings := []string{}        //slice
