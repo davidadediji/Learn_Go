@@ -45,3 +45,8 @@ Package Level variables
 
 variables that are defined outside all functions 
 Therefore this variables is assessible by any of the functions including the main function and in all files with the same package
+
+Note: package level variables can only be created with the var keyword
+
+
+Local variables: ones that is defined within a function and not assesible by another function.....
