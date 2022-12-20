@@ -2,6 +2,7 @@ package main
 
 import (
 	f "fmt"
+	"time"
 )
 
 func main() {
@@ -15,7 +16,7 @@ func main() {
 	//print out the types of a variable and the constants
 	// fmt.Printf("conferenceTickets is %T\n", remainingTickets)
 	greetUsers()
-
+	f.Println(time.Now().UnixNano())
 	f.Printf("We have total of %v tickets and %v, are still avaliable.\n", conferenceTickets, remainingTickets)
 	f.Println("Get your tickets here to attend")
 	//Arrays - arrays in Go have fixed size
