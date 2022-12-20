@@ -15,17 +15,13 @@ func main() {
 	//infinite loop
 	for {
 		firstName, lastName, email, userTickets := getUserInput()
-		isValidEmail, isValidName, isValidTicketNumber  := validateUserInput(firstName, lastName, email, userTickets, remainingTickets)
+		isValidEmail, isValidName, isValidTicketNumber := validateUserInput(firstName, lastName, email, userTickets, remainingTickets)
 
 		if isValidName && isValidEmail && isValidTicketNumber {
-			remainingTickets = remainingTickets - userTickets
-			bookings = append(bookings, firstName+" "+lastName)
-
-			f.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmaton email at %v\n", firstName, lastName, userTickets, email)
-			f.Printf("remains %v tickets\n", remainingTickets)
+			bookings := bookTicket(remainingTickets, userTickets, bookings, firstName, lastName, email)
 			firstNames := getFirstNames(bookings)
 			f.Printf("The first names of bookings are: %v\n", firstNames)
-
+			
 			//conditionals (if-else)
 			noTicketRemaining := remainingTickets == 0
 			if noTicketRemaining {
@@ -95,6 +91,16 @@ func validateUserInput(firstName string, lastName string, email string, userTick
 	isValidEmail := strings.Contains(email, "@")
 	isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets
 
-	//Go can return multiple values 
+	//Go can return multiple values
 	return isValidEmail, isValidName, isValidTicketNumber
+}
+
+func bookTicket(remainingTickets uint, userTickets uint, bookings []string, firstName string, lastName string, email string ) ([]string) {
+	remainingTickets = remainingTickets - userTickets
+	bookings = append(bookings, firstName+" "+lastName)
+
+	f.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmaton email at %v\n", firstName, lastName, userTickets, email)
+	f.Printf("remains %v tickets\n", remainingTickets)
+
+	return bookings
 }
