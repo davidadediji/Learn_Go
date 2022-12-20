@@ -2,7 +2,7 @@ package main
 
 import (
 	f "fmt"
-	"time"
+	 "time"
 )
 
 func main() {
@@ -22,6 +22,7 @@ func main() {
 	//Arrays - arrays in Go have fixed size
 	//infinite loop
 	for {
+		//declare variables and leave unassigned....
 		var firstName string
 		var lastName string
 		var email string
@@ -47,6 +48,7 @@ func main() {
 		// f.Printf("The first value: %v\n", bookings[0])
 		// f.Printf("Slice type: %T\n", bookings)
 		// f.Printf("Slice length %v\n", len(bookings))
+		f.Print("This is David")
 
 		f.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmaton email at %v\n", firstName, lastName, userTickets, email)
 		f.Printf("remains %v tickets\n", remainingTickets)
