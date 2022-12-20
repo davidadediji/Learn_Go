@@ -2,7 +2,8 @@ package main
 
 import (
 	f "fmt"
-	 "time"
+	"strings"
+	"time"
 )
 
 func main() {
@@ -19,7 +20,7 @@ func main() {
 	f.Println(time.Now().UnixNano())
 	f.Printf("We have total of %v tickets and %v, are still avaliable.\n", conferenceTickets, remainingTickets)
 	f.Println("Get your tickets here to attend")
-	//Arrays - arrays in Go have fixed size
+
 	//infinite loop
 	for {
 		//declare variables and leave unassigned....
@@ -40,19 +41,40 @@ func main() {
 		f.Println("Enter number of tickets: ")
 		f.Scan(&userTickets)
 
-		remainingTickets = remainingTickets - userTickets
-		// bookings[0] = firstName + " " + lastName
-		bookings = append(bookings, firstName+" "+lastName)
+		if userTickets <= remainingTickets {
+			remainingTickets = remainingTickets - userTickets
+			bookings = append(bookings, firstName+" "+lastName)
 
-		// f.Printf("The whole slice: %v\n", bookings)
-		// f.Printf("The first value: %v\n", bookings[0])
-		// f.Printf("Slice type: %T\n", bookings)
-		// f.Printf("Slice length %v\n", len(bookings))
-		f.Print("This is David")
+			// f.Printf("The whole slice: %v\n", bookings)
+			// f.Printf("The first value: %v\n", bookings[0])
+			// f.Printf("Slice type: %T\n", bookings)
+			// f.Printf("Slice length %v\n", len(bookings))
+			f.Print("This is David")
 
-		f.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmaton email at %v\n", firstName, lastName, userTickets, email)
-		f.Printf("remains %v tickets\n", remainingTickets)
-		f.Printf("All the bookings %v\n", bookings)
+			f.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmaton email at %v\n", firstName, lastName, userTickets, email)
+			f.Printf("remains %v tickets\n", remainingTickets)
+
+			firstNames := []string{}
+
+			//for each
+			for _, booking := range bookings {
+				names := strings.Fields(booking)
+
+				firstNames = append(firstNames, names[0])
+			}
+			f.Printf("The first names of bookings are: %v\n", firstNames)
+
+			//conditionals (if-else)
+			noTicketRemaining := remainingTickets == 0
+			if noTicketRemaining {
+				//end program
+				f.Println("Our conference is booked out. Come back next year")
+				break
+			}
+		} else {
+			f.Printf("We only have %v tickets remaining, so you can't book %v tickets\n", remainingTickets, userTickets)
+			continue
+		}
 	}
 
 }
