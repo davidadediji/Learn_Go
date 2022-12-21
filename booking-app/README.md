@@ -50,3 +50,20 @@ Note: package level variables can only be created with the var keyword
 
 
 Local variables: ones that is defined within a function and not assesible by another function.....
+
+
+Go programs are organised into packages
+A package is a collection of Go files
+
+
+To export a function from another package in Go all you need do is capitalise the first character in that function
+
+
+import it by calling the module_name/package_name
+
+to use do
+package_name.func_name()
+
+
+Map: data type that allows you store key-value pairs in Go
+unique keys to values
